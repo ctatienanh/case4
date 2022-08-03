@@ -24,4 +24,5 @@ public class Product {
     private String cpu;
     private String memoryStick;
     private String pin;
+    private int star;
 }
