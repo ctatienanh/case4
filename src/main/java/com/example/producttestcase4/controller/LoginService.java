@@ -19,7 +19,6 @@ public class LoginService {
     AuthenticationManager authenticationManager;
     @Autowired
     AppUserService appUserService;
-
     @Autowired
     JwtService jwtService;
 
