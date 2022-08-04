@@ -43,7 +43,7 @@ public class ProductAPI {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "/img/"+name;
+        return "img/"+name;
     }
 
     @PutMapping
