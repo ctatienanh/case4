@@ -1,6 +1,6 @@
-package com.example.be_casemodule4.config;
+package com.example.producttestcase4.config;
 
-import com.example.be_casemodule4.service.IUserService;
+import com.example.producttestcase4.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -48,17 +48,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http.csrf().ignoringAntMatchers("/**");
+        http.csrf().ignoringAntMatchers("/");
         http.authorizeRequests()
-                .antMatchers("/", "/login", "/register").permitAll()
-                .and().authorizeRequests().antMatchers("/user/**").hasRole("USER")
+                .antMatchers("/", "/login/**", "/register").permitAll()
+//                .and().authorizeRequests().antMatchers("/user/**").hasRole("USER")
+//                .and().authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and().csrf().disable();
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling();
         http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
-        http.sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.cors();
+//        http.sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//        http.cors();
     }
 }

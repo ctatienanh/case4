@@ -1,4 +1,4 @@
-package com.example.be_casemodule4.models;
+package com.example.producttestcase4.model;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

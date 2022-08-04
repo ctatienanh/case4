@@ -1,6 +1,6 @@
-package com.example.be_casemodule4.controller;
-import com.example.be_casemodule4.models.AppUser;
-import com.example.be_casemodule4.service.AppUserService;
+package com.example.producttestcase4.controller;
+import com.example.producttestcase4.model.AppUser;
+import com.example.producttestcase4.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

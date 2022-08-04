@@ -1,4 +1,4 @@
-package com.example.be_casemodule4.service;
+package com.example.producttestcase4.service;
 
 import io.jsonwebtoken.*;
 import org.springframework.security.core.Authentication;

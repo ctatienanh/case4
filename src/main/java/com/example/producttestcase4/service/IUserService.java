@@ -1,5 +1,5 @@
-package com.example.be_casemodule4.service;
-import com.example.be_casemodule4.models.AppUser;
+package com.example.producttestcase4.service;
+import com.example.producttestcase4.model.AppUser;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import java.util.List;
 

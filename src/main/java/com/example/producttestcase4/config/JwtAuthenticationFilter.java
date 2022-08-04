@@ -1,7 +1,7 @@
-package com.example.be_casemodule4.config;
+package com.example.producttestcase4.config;
 
-import com.example.be_casemodule4.service.IUserService;
-import com.example.be_casemodule4.service.JwtService;
+import com.example.producttestcase4.service.IUserService;
+import com.example.producttestcase4.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

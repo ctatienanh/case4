@@ -1,6 +1,7 @@
-package com.example.be_casemodule4.controller;
-import com.example.be_casemodule4.models.AppUser;
-import com.example.be_casemodule4.service.JwtService;
+package com.example.producttestcase4.controller;
+import com.example.producttestcase4.model.AppUser;
+import com.example.producttestcase4.service.AppUserService;
+import com.example.producttestcase4.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 public class LoginService {
     @Autowired
     AuthenticationManager authenticationManager;
+    @Autowired
+    AppUserService appUserService;
 
     @Autowired
     JwtService jwtService;
@@ -27,5 +30,11 @@ public class LoginService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtService.generateTokenLogin(authentication);
         return new ResponseEntity<>(token, HttpStatus.OK);
+    }
+    @PostMapping("/register")
+    public void register(@RequestBody AppUser appUser){
+        appUserService.save(appUser);
+//        long iduser=appUserService.seachUserByName(appUser.getUserName());
+        appUserService.setRolebyID(appUser.getId());
     }
 }

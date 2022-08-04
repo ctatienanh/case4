@@ -1,4 +1,4 @@
-package com.example.be_casemodule4.config;
+package com.example.producttestcase4.config;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

@@ -1,7 +1,8 @@
-package com.example.be_casemodule4.service;
+package com.example.producttestcase4.service;
 
-import com.example.be_casemodule4.models.AppUser;
-import com.example.be_casemodule4.repository.AppUserRepo;
+import com.example.producttestcase4.model.AppUser;
+import com.example.producttestcase4.repository.AppUserRepo;
+//import com.example.producttestcase4.repository.RoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +15,7 @@ import java.util.List;
 public class AppUserService implements IUserService{
     @Autowired
     AppUserRepo appUserRepo;
+
     @Override
     public List<AppUser> getAll() {
         return (List<AppUser>) appUserRepo.findAll();
@@ -34,4 +36,10 @@ public class AppUserService implements IUserService{
         AppUser appUser = appUserRepo.findByUserName(username);
         return new User(appUser.getUserName(),appUser.getPassWord(),appUser.getRoles());
     }
+    public void setRolebyID(long id){
+        appUserRepo.saveRole(id);
+    }
+//    public int seachUserByName(String username){
+//        return appUserRepo.findidbyName(username);
+//    }
 }
