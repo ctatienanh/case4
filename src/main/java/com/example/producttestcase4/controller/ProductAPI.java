@@ -39,11 +39,11 @@ public class ProductAPI {
     public String upImg(@RequestParam MultipartFile file){
         String name = file.getOriginalFilename();
         try {
-            FileCopyUtils.copy(file.getBytes(),new File("/Users/TienAnh/Desktop/Template-phone/web bán đt/img/" + name));
+            FileCopyUtils.copy(file.getBytes(),new File("C:\\Users\\Admin\\Desktop\\cas4\\case4-fe\\web bán đt\\img\\" + name));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "/Template-phone/web bán đt/img/"+name;
+        return "/img/"+name;
     }
 
     @PutMapping
