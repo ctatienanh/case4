@@ -1,5 +1,6 @@
 package com.example.producttestcase4.controller;
 import com.example.producttestcase4.model.AppUser;
+import com.example.producttestcase4.model.UserLogin;
 import com.example.producttestcase4.service.AppUserService;
 import com.example.producttestcase4.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +24,13 @@ public class LoginService {
     JwtService jwtService;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody AppUser appUser) {
+    public UserLogin login(@RequestBody AppUser appUser) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(appUser.getUserName(), appUser.getPassWord()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtService.generateTokenLogin(authentication);
-        return new ResponseEntity<>(token, HttpStatus.OK);
+        String role=appUserService.findRoleById(appUser.getUserName()).get(0);
+        return new UserLogin(role,token);
     }
     @PostMapping("/register")
     public void register(@RequestBody AppUser appUser){

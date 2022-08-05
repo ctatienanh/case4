@@ -19,6 +19,7 @@ public class CategoryAPI {
 
     @GetMapping
     public List<Category> getall(){
+
         return categoryService.getall();
     }
 
