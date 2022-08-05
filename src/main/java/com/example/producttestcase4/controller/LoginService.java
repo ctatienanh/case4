@@ -12,6 +12,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping()
@@ -37,5 +39,9 @@ public class LoginService {
         appUserService.save(appUser);
 //        long iduser=appUserService.seachUserByName(appUser.getUserName());
         appUserService.setRolebyID(appUser.getId());
+    }
+    @GetMapping("/account")
+    public List<AppUser> allappuser(){
+        return appUserService.getAll();
     }
 }
