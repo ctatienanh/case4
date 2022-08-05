@@ -1,12 +1,9 @@
 package com.example.producttestcase4.controller;
 
-import com.example.producttestcase4.model.Order;
+import com.example.producttestcase4.model.OrderProduct;
 import com.example.producttestcase4.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +16,13 @@ public class OrderAPI {
 
 
     @GetMapping
-    public List<Order> gelall(){
+    public List<OrderProduct> gelall(){
         return orderService.getall();
+    }
+
+    @PostMapping
+    public void  create(@RequestBody List<OrderProduct> orders){
+        orderService.create(orders);
     }
 
 
