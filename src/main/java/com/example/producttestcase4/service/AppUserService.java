@@ -42,4 +42,7 @@ public class AppUserService implements IUserService{
 //    public int seachUserByName(String username){
 //        return appUserRepo.findidbyName(username);
 //    }
+public List<String> findRoleById(String username){
+    return appUserRepo.findRoleById(username);
+}
 }
