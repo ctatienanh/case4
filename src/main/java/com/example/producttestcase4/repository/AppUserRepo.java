@@ -18,6 +18,6 @@ public interface AppUserRepo extends CrudRepository<AppUser, Long> {
     @Transactional
     @Query(nativeQuery = true,value = "insert into app_user_roles values (:id,1)")
     void saveRole(@Param("id") long id);
-    @Query(nativeQuery = true,value = "select name from role join app_user_roles on role.id=app_user_roles.roles_id join app_user where user_name=:username")
+    @Query(nativeQuery = true,value = "select name from role join app_user_roles on role.id=app_user_roles.roles_id join app_user on app_user.id=app_user_roles.app_user_id where user_name=:username")
     List<String> findRoleById(@Param("username") String username);
 }
