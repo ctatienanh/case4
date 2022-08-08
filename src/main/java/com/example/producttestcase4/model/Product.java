@@ -16,6 +16,7 @@ public class Product {
     private Category category;
     private double price;
     private String img;
+    private long amounts;
     private String displayy;
     private String hedieuhanh;
     private String camerasau;

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AppUserService implements IUserService {
+public class AppUserService implements IUserService{
     @Autowired
     AppUserRepo appUserRepo;
 
@@ -34,16 +34,12 @@ public class AppUserService implements IUserService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         AppUser appUser = appUserRepo.findByUserName(username);
-        return new User(appUser.getUserName(), appUser.getPassWord(), appUser.getRoles());
+        return new User(appUser.getUserName(),appUser.getPassWord(),appUser.getRoles());
     }
-
-    public void setRolebyID(long id) {
+    public void setRolebyID(long id){
         appUserRepo.saveRole(id);
     }
 //    public int seachUserByName(String username){
 //        return appUserRepo.findidbyName(username);
 //    }
-    public List<String> findRoleById(String username){
-    return appUserRepo.findRoleById(username);
-    }
 }
