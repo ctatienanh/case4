@@ -46,12 +46,12 @@ public class ProductAPI {
         return "/Template-phone/web bán đt/img/"+name;
     }
 
-    @PutMapping
+    @PostMapping("/edit")
     public void edit(@RequestBody Product product){
          productService.create(product);
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/delete/{id}")
     public void delete(@PathVariable long id){
         productService.delete(id);
     }
