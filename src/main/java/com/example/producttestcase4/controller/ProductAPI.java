@@ -43,15 +43,15 @@ public class ProductAPI {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "img/"+ name;
+        return "img/"+name;
     }
 
-    @PutMapping
+    @PostMapping("/edit")
     public void edit(@RequestBody Product product){
          productService.create(product);
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/delete/{id}")
     public void delete(@PathVariable long id){
         productService.delete(id);
     }

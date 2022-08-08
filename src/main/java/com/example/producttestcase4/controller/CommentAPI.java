@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/comment")
 @CrossOrigin("*")
@@ -18,12 +20,12 @@ public class CommentAPI {
 
     @GetMapping
     public Page<Comment> getall(@RequestParam(defaultValue = "0") int page) {
-        return commentService.getall(PageRequest.of(page,8));
+        return commentService.getall(PageRequest.of(page,4));
     }
 
     @GetMapping("/{id}")
-    public Comment finnall(@PathVariable long id){
-        return commentService.finall(id);
+    public List<Comment> finnall(@PathVariable long id){
+        return commentService.findIdPhone(id);
     }
 
     @PostMapping

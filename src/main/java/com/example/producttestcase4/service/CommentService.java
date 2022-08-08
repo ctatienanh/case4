@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
 
 @Service
 public class CommentService {
@@ -16,6 +19,9 @@ public class CommentService {
 
     public Page<Comment> getall(Pageable pageable) {
         return iComment.findAll(pageable);
+    }
+    public List<Comment> findIdPhone(@PathVariable long id) {
+        return  iComment.findAllByIDP(id);
     }
 
     public Comment finall(long id) {
