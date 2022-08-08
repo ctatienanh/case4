@@ -56,4 +56,11 @@ public class ProductAPI {
         productService.delete(id);
     }
 
+    @GetMapping("/search")
+    public  List<Product> findByName(@RequestParam(defaultValue = "") String name){
+        if(name == ""){
+            return null;
+        }else {
+            return productService.findByName(name);}
+    }
 }
