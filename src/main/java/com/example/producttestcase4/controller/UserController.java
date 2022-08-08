@@ -18,8 +18,7 @@ public class UserController {
     AppUserService appUserService;
 
     @GetMapping
-    public ResponseEntity<List<AppUser>> getAll(){
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return new ResponseEntity<>(appUserService.getAll(), HttpStatus.OK);
+    public List<AppUser> getAll(){
+        return appUserService.getAll();
     }
 }

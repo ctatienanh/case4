@@ -1,6 +1,7 @@
 package com.example.producttestcase4.service;
 
 import com.example.producttestcase4.model.OrderProduct;
+import com.example.producttestcase4.model.UserSum;
 import com.example.producttestcase4.repository.IOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ public class OrderService {
 
         }
     }
-
-
+    public List<UserSum> getname(){
+        return iOrder.findallprice();
+    }
 }
